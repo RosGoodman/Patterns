@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BehavioralPatterns", "Behav
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryMethod", "FactoryMethod\FactoryMethod.csproj", "{2E342980-DAFB-494D-BB03-8588ACED701F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFctory", "AbstractFctory\AbstractFctory.csproj", "{EB722AFE-197B-4D9E-BA69-FC964DF14FDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractFctory", "AbstractFctory\AbstractFctory.csproj", "{EB722AFE-197B-4D9E-BA69-FC964DF14FDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
