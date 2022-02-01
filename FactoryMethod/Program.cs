@@ -18,20 +18,56 @@ public class Program
 
     Когда создание новых объектов необходимо делегировать из базового класса классам 
     наследникам*/
-    public static void Main(string[] args)
-    {
-        AbstractDeveloper airplansDev = new AirplaneDeveloper("КБ Сухого");
-        Airplane SU27 = (Airplane)airplansDev.TransportCreate();
-        Airplane SU35 = (Airplane)airplansDev.TransportCreate();
 
-        AbstractDeveloper truckDev = new TruckDeveloper("Mercedes-Benz");
-        Truck Actros = (Truck)truckDev.TransportCreate();
-        Truck Atego = (Truck)truckDev.TransportCreate();
+    /*
+    Шаги реализации
+    1.  Приведите все создаваемые продукты к общему интерфейсу.
 
-        AbstractDeveloper shipDev = new ShipDeveloper("NorthSea");
-        Ship Titanic = (Ship)shipDev.TransportCreate();
-        Ship Britanic = (Ship)shipDev.TransportCreate();
+    2.  В классе, который производит продукты, создайте пустой фабричный метод. В качестве 
+    возвращаемого типа укажите общий интерфейс продукта.
 
-        Console.ReadLine();
-    }
+    3.  Затем пройдитесь по коду класса и найдите все участки, создающие продукты. 
+    Поочерёдно замените эти участки вызовами фабричного метода, перенося в него код 
+    создания различных продуктов.
+
+    В фабричный метод, возможно, придётся добавить несколько параметров, контролирующих, 
+    какой из продуктов нужно создать.
+
+    На этом этапе фабричный метод, скорее всего, будет выглядеть удручающе. В нём будет
+    жить большой условный оператор, выбирающий класс создаваемого продукта. Но не 
+    волнуйтесь, мы вот-вот исправим это.
+
+    4.  Для каждого типа продуктов заведите подкласс и переопределите в нём фабричный метод.
+    Переместите туда код создания соответствующего продукта из суперкласса.
+
+    5.  Если создаваемых продуктов слишком много для существующих подклассов создателя, вы 
+    можете подумать о введении параметров в фабричный метод, которые позволят возвращать 
+    различные продукты в пределах одного подкласса.
+
+    Например, у вас есть класс Почта с подклассами АвиаПочта и НаземнаяПочта, а также 
+    классы продуктов Самолёт, Грузовик и Поезд. Авиа соответствует Самолётам, но для 
+    НаземнойПочты есть сразу два продукта. Вы могли бы создать новый подкласс почты для 
+    поездов, но проблему можно решить и по-другому. Клиентский код может передавать в 
+    фабричный метод НаземнойПочты аргумент, контролирующий тип создаваемого продукта.
+
+    6.  Если после всех перемещений фабричный метод стал пустым, можете сделать его 
+    абстрактным. Если в нём что-то осталось — не беда, это будет его реализацией по 
+    умолчанию.
+    */
+public static void Main(string[] args)
+{
+    AbstractDeveloper airplansDev = new AirplaneDeveloper("КБ Сухого");
+    Airplane SU27 = (Airplane)airplansDev.TransportCreate();
+    Airplane SU35 = (Airplane)airplansDev.TransportCreate();
+
+    AbstractDeveloper truckDev = new TruckDeveloper("Mercedes-Benz");
+    Truck Actros = (Truck)truckDev.TransportCreate();
+    Truck Atego = (Truck)truckDev.TransportCreate();
+
+    AbstractDeveloper shipDev = new ShipDeveloper("NorthSea");
+    Ship Titanic = (Ship)shipDev.TransportCreate();
+    Ship Britanic = (Ship)shipDev.TransportCreate();
+
+    Console.ReadLine();
+}
 }
