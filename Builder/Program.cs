@@ -1,4 +1,6 @@
-﻿namespace Builder;
+﻿using Builder.Models;
+
+namespace Builder;
 
 public class Program
 {
@@ -18,5 +20,21 @@ public class Program
      */
     public static void Main(string[] args)
     {
+        CreatorOfRobots creator = new CreatorOfRobots();
+        RobotBuilder builder = new RobotBuilder();
+        Robot robot = creator.Create(builder);
+
+        robot.Chassis.Move();
+
+        robot.LeftManipulator.Move();
+        robot.LeftManipulator.MainAction();
+
+        robot.RightManipulator.Move();
+        robot.RightManipulator.MainAction();
+
+        robot.Head.Turning();
+        robot.Head.SpaceAnalysis();
+
+        Console.ReadLine();
     }
 }
